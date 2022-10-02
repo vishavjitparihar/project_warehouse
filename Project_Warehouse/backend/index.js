@@ -14,6 +14,7 @@ require('dotenv').config();
 //routes
 const productRouter = require('./routes/product.route.js');
 app.use('/product', productRouter); //any request to product will be handeled by productRouter
+app.use('/warehouse', require('./routes/warehouse.route.js'))
 
 //connecting to our MongoDB, and using .then and .catch to make sure it actually does connect to the database
 //if we do not connect to the database we will kill the database

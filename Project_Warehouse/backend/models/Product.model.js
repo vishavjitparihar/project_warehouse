@@ -38,7 +38,7 @@ const Schema = mongoose.Schema; //Schema is a class that we can create our DB sc
 const productSchema = new Schema({
     //we will define our schema in here
 
-    _id: String,
+    serialNum: String,
     model: String,
     color: String,
     storage: Number,

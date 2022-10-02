@@ -11,12 +11,18 @@ const router = require('express').Router();
 const mongoose = require('mongoose');
 
 //importing to get the functions from controller
-const { findAllProduct, findProductByID, createProduct } = require('../controller/product.controller.js')
+const { findAllProduct, findProductByID, createProduct, updateProduct, deleteProductByID } = require('../controller/product.controller.js')
 
 //middleware
-// if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
-//     throw {status: 204, msg: 'No product found'}
-// }
+const validObjectID = (req, res, next) =>{
+    if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        res.status(204).send();
+    } else {
+        next();
+    }
+}
+
+
 
 // GET all product
 router.get('/', async (req, res) => {
@@ -35,6 +41,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+
 // Create a product
 router.post('/', async (req, res) => {
     try {
@@ -45,9 +52,26 @@ router.post('/', async (req, res) => {
     }
 })
 
-// Update a product
 
+// Update a product
+router.put('/:id',async (req, res) => {
+    try {
+        // For PUT requests, the data to update comes through the request body as well
+        await updateProduct(req.params.id, req.body);
+        res.send();
+    } catch (err) {
+        res.status(err?.status ?? 500).json(err);
+    }
+});
 
 // Delete a product
+router.delete('/:id', async(req, res) => {
+    try {
+        await deleteProductByID(req.params.id);
+        res.send();
+    } catch (err) {
+        res.status(err?.status ?? 500).json(err);
+    }
+})
 
 module.exports = router;

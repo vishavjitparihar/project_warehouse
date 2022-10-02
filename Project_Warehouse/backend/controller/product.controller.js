@@ -9,6 +9,7 @@ const findAllProduct = async () => {
     return product;
 };
 
+//find one specific product based on it's ID
 const findProductByID = async (id) => {
     //not finding an object id will not throw an error, so we need to throw error manually
     const product = await Product.findById(id);
@@ -18,6 +19,7 @@ const findProductByID = async (id) => {
     return product;
 };
 
+//create a new product
 const createProduct = async (productToBeSaved) => {
     try {
         //we will use the model file and create instance of it
@@ -29,5 +31,17 @@ const createProduct = async (productToBeSaved) => {
     }
 }
 
+//find one specific product and make changes to that
+const updateProduct = async (id, productToUpdate) => {
+    try {
+        await Product.findByIdAndUpdate(id, productToUpdate);
+    } catch (err) {
+        throw {status: 400, msg: err};
+    }
+}
 
-module.exports = { findAllProduct, findProductByID, createProduct };
+
+//find one specifif product and delete it
+const deleteProductByID = async id => await Product.findByIdAndDelete(id);
+
+module.exports = { findAllProduct, findProductByID, createProduct, updateProduct, deleteProductByID };
