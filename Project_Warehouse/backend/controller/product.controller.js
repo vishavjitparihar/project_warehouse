@@ -9,7 +9,7 @@ const findAllProduct = async () => {
     return product;
 };
 
-//find one specific product based on it's ID
+//find one specific product based on it's serial number
 const findProductByID = async (id) => {
     //not finding an object id will not throw an error, so we need to throw error manually
     const product = await Product.findOne({"serialNum": id});

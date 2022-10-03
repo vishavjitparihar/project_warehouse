@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
     res.json(product);
 })
 
-// GET product by ID
+// GET product by it's Serial Number
 router.get('/:id', async (req, res) => {
     //req.params.id will get the input from the URL
     try {

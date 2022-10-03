@@ -47,7 +47,11 @@ const warehouseSchema = new Schema({
             type: mongoose.Types.ObjectId,
             ref: 'Product'                                      //we will be using object id from Product's database to add items to the warehouse 
         },
-        quantity: Number
+        quantity: {
+            type: Number,
+            min: [0, 'Products can not be negative'],
+            max: [1000, 'Too many items']
+        }
     }]
 });
 
