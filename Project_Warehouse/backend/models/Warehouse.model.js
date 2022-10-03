@@ -3,10 +3,11 @@
  * 
  * Warehouse name - Bakersfiled Warehouse
  * Warehouse number - 2
- * Warehouse phone number - 661-370-5466
+ * Warehouse manager - Vishavjit Parihar
+ * Warehouse phone number - 661-543-6087
+ * Address - 1211 Main St, Bakersfield, CA - 93003
  * Avilable Products - iPhone, iPad, Macbook, Apple Watch
  *      Avilable product will also add the quantity of how much products are actually avilable
- * Warehouse Capacity - 2000
  */
 
 
@@ -17,32 +18,37 @@ const Schema = mongoose.Schema;
 
 
 const warehouseSchema = new Schema({
-    name: {
-        type: String,
+    warehouseName: String,
+    warehouseNumber: Number,
+    manager: String,
+    phone: String,
+
+    address: {
+        stAddress: String,
+        city: String,
+        State: String,
+        zip: String
     },
 
-    warehouseNumber: {
-        type: Number,
-    },
+    //maximum capacity this warehouse can store
+    maxCapacityIPhone: Number,
+    maxCapacityIPad: Number,
+    maxCapacityMac: Number,
+    maxCapacityWatch: Number,
 
-    inventory: {
-        type: [{
+    //how many items are currently at the warehouse
+    currCapacityIPhone: Number,
+    currCapacityIPad: Number,
+    currCapacityMac: Number,
+    currCapacityWatch: Number,
+
+    product: [{
+        name: {
             type: mongoose.Types.ObjectId,
-            ref: 'Product'
-        }]
-    }
-
-     // phone: {
-    //     type: Number,
-    // },
-
-    // iPhoneQuantity: {
-    //     type: Number,
-    //     // min: [0, 'Quntity cannot be negative'],
-    //     // max: [800, 'Warehouse capacity for iPhone is only 200']
-    // }
-    
-
+            ref: 'Product'                                      //we will be using object id from Product's database to add items to the warehouse 
+        },
+        quantity: Number
+    }]
 });
 
 

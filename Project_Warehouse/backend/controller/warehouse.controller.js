@@ -2,7 +2,7 @@ const Warehouse = require('../models/Warehouse.model.js');
 
 
 
-const findAllWarehouse = async () => await Warehouse.find();
+const findAllWarehouse = async () => await Warehouse.find().populate('product.name');
 
 const createWarehouse = async wareHouseToSave => {
     try {

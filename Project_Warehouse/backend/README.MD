@@ -26,5 +26,9 @@
   512 - Storage
   F - Not Refurbished
   T - is Cellular
-  000 - No carrier lock (000-No Lock, 001-ATT, 010-Verizon, 011-Sprint, 100-TMobile)
+  000 - No carrier lock (000-No Lock, 001-ATT, 010-Verizon, 011-Sprint, 100-T Mobile)
+
+
+## Warehouse Side
+
  
