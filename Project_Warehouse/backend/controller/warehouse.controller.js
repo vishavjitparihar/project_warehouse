@@ -14,4 +14,13 @@ const createWarehouse = async wareHouseToSave => {
     }
 }
 
-module.exports = { findAllWarehouse, createWarehouse };
+const findWarehouseByID = async (id) => {
+    const warehouse = await Warehouse.findOne({"warehouseNumber": id});
+    //not finding an object id will not throw an error, so we need to throw error manually
+    if(warehouse == null){
+        throw { status: 204, msg: `No warehouse with the warehouse number of ${id} was found.`}
+    }
+    return warehouse;
+}
+
+module.exports = { findAllWarehouse, createWarehouse, findWarehouseByID};

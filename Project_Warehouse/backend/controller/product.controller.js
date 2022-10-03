@@ -14,7 +14,7 @@ const findProductByID = async (id) => {
     //not finding an object id will not throw an error, so we need to throw error manually
     const product = await Product.findOne({"serialNum": id});
     if(product == null) {
-        throw { status: 204, msg: `No product with the product id of ${id} was found.`}
+        throw { status: 204, msg: `No product with the serial number of ${id} was found.`}
     }
     return product;
 };

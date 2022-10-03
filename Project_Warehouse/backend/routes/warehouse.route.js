@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { findAllWarehouse,createWarehouse } = require('../controller/warehouse.controller.js')
+
+//importing to get the functions from controller
+const { findAllWarehouse, createWarehouse, findWarehouseByID } = require('../controller/warehouse.controller.js')
 
 // Find all warehouse
 router.get('/', async(req, res) => {
@@ -11,7 +13,6 @@ router.get('/', async(req, res) => {
     }
 })
 
-
 // Adding  Warehouse
 router.post('/', async (req, res) => {
     try {
@@ -19,6 +20,16 @@ router.post('/', async (req, res) => {
         res.status(201).json(warehouse);
     } catch (err) {
         res.status(err?.status ?? 500).json(err);
+    }
+})
+
+// Finding a Warehouse using it's Warehouse Number
+router.get('/:id', async (req, res) => {
+    try{
+        const warehouse = await findWarehouseByID(req.params.id);
+        res.json(warehouse);
+    } catch (err) {
+        res.status(err?.status).json(err);
     }
 })
 
