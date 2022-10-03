@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
 
 
 // Update a product
-router.put('/:id',async (req, res) => {
+router.put('/:id', validObjectID, async (req, res) => {
     try {
         // For PUT requests, the data to update comes through the request body as well
         await updateProduct(req.params.id, req.body);
@@ -65,7 +65,7 @@ router.put('/:id',async (req, res) => {
 });
 
 // Delete a product
-router.delete('/:id', async(req, res) => {
+router.delete('/:id', validObjectID, async(req, res) => {
     try {
         await deleteProductByID(req.params.id);
         res.send();
@@ -74,4 +74,4 @@ router.delete('/:id', async(req, res) => {
     }
 })
 
-module.exports = router;
+module.exports = router; 
