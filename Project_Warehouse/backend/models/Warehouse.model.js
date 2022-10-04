@@ -31,6 +31,7 @@ const warehouseSchema = new Schema({
     },
 
     //maximum capacity this warehouse can store
+    //this property is fixed, and cannot be changed
     maxCapacityIPhone: {
         type: Number,
         required: true,
@@ -39,10 +40,16 @@ const warehouseSchema = new Schema({
     
 
     //how many items are currently at the warehouse
-    currCapacityIPhone: Number,
+    currCapacityIPhone: {
+        type: Number,
+        min: [0, 'Current Capacity cannot be negative']
+    },
   
     //quantity of newly added products
-    newIphone: Number,
+    newIphone: {
+        type: Number,
+        min: [0, 'inventory added must be larger than or equal to 0']
+    },
 
 
     product: [{
