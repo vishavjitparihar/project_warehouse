@@ -23,36 +23,30 @@ const warehouseSchema = new Schema({
     manager: String,
     phone: String,
 
-    address: {
-        stAddress: String,
-        city: String,
-        State: String,
-        zip: String
-    },
+    // address: {
+    //     stAddress: String,
+    //     city: String,
+    //     State: String,
+    //     zip: String
+    // },
 
-    //maximum capacity this warehouse can store
-    maxCapacityIPhone: Number,
-    maxCapacityIPad: Number,
-    maxCapacityMac: Number,
-    maxCapacityWatch: Number,
+    // //maximum capacity this warehouse can store
+    // maxCapacityIPhone: Number,
+    // maxCapacityIPad: Number,
+    // maxCapacityMac: Number,
+    // maxCapacityWatch: Number,
 
-    //how many items are currently at the warehouse
-    currCapacityIPhone: Number,
-    currCapacityIPad: Number,
-    currCapacityMac: Number,
-    currCapacityWatch: Number,
+    // //how many items are currently at the warehouse
+    // currCapacityIPhone: Number,
+    // currCapacityIPad: Number,
+    // currCapacityMac: Number,
+    // currCapacityWatch: Number,
 
     product: [{
-        name: {
             type: mongoose.Types.ObjectId,
             ref: 'Product'                                      //we will be using object id from Product's database to add items to the warehouse 
-        },
-        quantity: {
-            type: Number,
-            min: [0, 'Products can not be negative'],
-            max: [1000, 'Too many items']
-        }
     }]
+
 });
 
 

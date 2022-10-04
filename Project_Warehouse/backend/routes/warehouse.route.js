@@ -1,7 +1,29 @@
+/**
+ * C- Create (POST)
+ * R - Read (GET)
+ * U - Update (PUT/PATCH)
+ * D - Delete (DELETE)
+ */
+
+
+
+
 const router = require('express').Router();
+const mongoose = require('mongoose');
 
 //importing to get the functions from controller
-const { findAllWarehouse, createWarehouse, findWarehouseByID, updateWarehouse } = require('../controller/warehouse.controller.js')
+const { findAllWarehouse, createWarehouse, findWarehouseByID, updateWarehouse, deleteWarehouseByID } = require('../controller/warehouse.controller.js')
+
+//middleware
+const validObjectID = (req, res, next) =>{
+    if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        res.status(204).send();
+    } else {
+        next();
+    }
+}
+
+
 
 // Find all warehouse
 router.get('/', async(req, res) => {
@@ -42,4 +64,16 @@ router.put('/:id', async (req, res) => {
         res.status(err?.status ?? 500).json(err);
     }
 })
+
+// Deleting an existing Warehouse
+router.delete('/:id', validObjectID, async(req, res) => {
+    try {
+        await deleteWarehouseByID(req.params.id);
+        res.send();
+    } catch (err) {
+        res.status(err?.status ?? 500).json(err);
+    }
+})
+
+
 module.exports = router;
