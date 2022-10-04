@@ -23,24 +23,27 @@ const warehouseSchema = new Schema({
     manager: String,
     phone: String,
 
-    // address: {
-    //     stAddress: String,
-    //     city: String,
-    //     State: String,
-    //     zip: String
-    // },
+    address: {
+        stAddress: String,
+        city: String,
+        State: String,
+        zip: String
+    },
 
-    // //maximum capacity this warehouse can store
-    // maxCapacityIPhone: Number,
-    // maxCapacityIPad: Number,
-    // maxCapacityMac: Number,
-    // maxCapacityWatch: Number,
+    //maximum capacity this warehouse can store
+    maxCapacityIPhone: {
+        type: Number,
+        required: true,
+        immutable: true
+    },
+    
 
-    // //how many items are currently at the warehouse
-    // currCapacityIPhone: Number,
-    // currCapacityIPad: Number,
-    // currCapacityMac: Number,
-    // currCapacityWatch: Number,
+    //how many items are currently at the warehouse
+    currCapacityIPhone: Number,
+  
+    //quantity of newly added products
+    newIphone: Number,
+
 
     product: [{
             type: mongoose.Types.ObjectId,
