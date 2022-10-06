@@ -2,15 +2,20 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';          //using axios so that I can use HTTP request
 
 import './ProductList.css'
-const Product = ({product: {model, color, storage, tag, carrierLock, image}}) => {
+import { ProdductForm } from '../Form/ProductForm';
+
+const Product = ({product: {model, color, storage, tag, carrierLock, image, serialNum, isRefurbished, isCellular}}) => {
     return (
         <tr>
             <td>{model}</td>
             <td>{color}</td>
             <td>{storage}</td>
             <td>{tag}</td>
+            <td>{isRefurbished}</td>
+            <td>{isCellular}</td>
             <td>{carrierLock}</td>
             <td><img height="130" src={image} alt={model}/></td>
+            <td>{serialNum}</td>
         </tr>
     )
 }
@@ -31,6 +36,7 @@ export const ProductList = () => {
     return (
         <>
             <div className= "TablePage">
+                <ProdductForm />
                 <table className="TableMain">
                     <thead>
                         <tr>
@@ -38,8 +44,11 @@ export const ProductList = () => {
                             <th>Color</th>
                             <th>Storage in GB</th>
                             <th>Tag</th>
+                            <th>Refurbished</th>
+                            <th>Cellular</th>
                             <th>Carrier Lock</th>
                             <th>Image</th>
+                            <th>Serial Number</th>
                         </tr>
                     </thead>
                     <tbody>
