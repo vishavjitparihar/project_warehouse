@@ -1,5 +1,5 @@
 import { ProductList } from "./List/ProductList"
-import WelcomePage from "./Pages/WelcomePage"
+import WelcomePage from "./Pages/WelcomePage/WelcomePage"
 
 export const App = () => {
     return (

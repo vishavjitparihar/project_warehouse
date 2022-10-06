@@ -1,7 +1,5 @@
-import React from 'react';
 
-
-import logo from '../logo.svg';
+import logo from './logo.svg';
 import './Welcome.css';
 
 const WelcomePage = () => {
@@ -17,17 +15,13 @@ const WelcomePage = () => {
                     <a
                         className="Sub-link"
                         href="https://www.apple.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
                     >
                         Click here for our Offical Website
                     </a>
                     <br></br>
                     <a
                         className="Sub-link"
-                        href="https://www.apple.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="login-page.html"
                     >
                         Continue to our Warehouse Website
                     </a>
