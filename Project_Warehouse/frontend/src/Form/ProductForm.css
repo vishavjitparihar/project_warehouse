@@ -206,6 +206,8 @@
   
   .p-t-10 {
     padding-top: 10px;
+    display: flex;
+    justify-content: center;
   }
   
   .p-t-30 {
@@ -510,7 +512,7 @@
   .card-3 .card-heading {
     background: url("../apple.png") center no-repeat;
     display: table-cell;
-    width: 50%;
+    width: 40%;
   }
   
   .card-3 .card-body {
@@ -537,3 +539,12 @@
     }
   }
   
+
+
+
+  .booleanVals {
+    display: flex;
+    font-size: 16px;
+    color: rgb(241, 239, 239);
+    background: rgb(0, 0, 0);
+  }

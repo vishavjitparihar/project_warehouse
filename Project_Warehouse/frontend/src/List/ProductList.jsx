@@ -36,7 +36,7 @@ export const ProductList = () => {
     return (
         <>
             <div className= "TablePage">
-                <ProdductForm />
+                <ProdductForm  setProductList={setProductList}/>
                 <table className="TableMain">
                     <thead>
                         <tr>

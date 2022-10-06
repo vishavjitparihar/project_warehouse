@@ -1,10 +1,12 @@
 import { useState } from "react";
+import axios from "axios";
+
 import './ProductForm.css'
 
 //This component is for the creation of a Product in our Database
 
 
-export const ProdductForm = () => {
+export const ProdductForm = ({setProductList}) => {
 
     const [productData, setProductData] = useState({
         productModel: '',
@@ -19,11 +21,47 @@ export const ProdductForm = () => {
     });
 
     // I don't want the page to refresh after form is submitted
+    const handleClear = async () => {
+        setProductData({
+            productModel: '',
+            productColor: '',
+            productStorage: null,
+            productTag: '',
+            productRefurbished: false,
+            productCellular: false,
+            productLock: '',
+            productImage: '',
+            productSerialNumber: ''
+        });
+    }
+
     const handleSubmit = async (event) => {
         // event.preventDefault() will prevent the page refresh
         event.preventDefault();
-        console.log(productData);
+        try {
+            const res = await axios.post('http://localhost:9000/product', {
+                serialNum: productData.productSerialNumber, 
+                model: productData.productModel,
+                color: productData.productColor,
+                storage: productData.productStorage,
+                isRefurbished: productData.productRefurbished,
+                tag: productData.productTag,
+                isCellular: productData.productCellular,
+                carrierLock: productData.productLock,
+                image: productData.productImage
+            });
+
+            //use setProductList to manually add the product
+            setProductList(productList => [...productList, res.data]);
+            event.target.reset();
+            handleClear();
+
+        } catch (err) {
+            console.error(err);
+        }
     }
+    
+    
 
     return (
         <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
@@ -106,9 +144,26 @@ export const ProdductForm = () => {
                             />
                         </div>
 
+                        <div className="booleanVals">
+                            <label htmlFor="cell">Cellular:</label>
+                            <input id ="cell"
+                                type="checkbox"
+                                onChange={() => setProductData({...productData, productCellular: !productData.productCellular})}
+                            /> 
+
+                            <label htmlFor="new">Refurbished:</label>
+                            <input id ="new"
+                                type="checkbox"
+                                onChange={() => setProductData({...productData, productRefurbished: !productData.productRefurbished})}
+                            /> 
+
+                        </div>
                         
-                        
-                        
+                        <div>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                        </div>
                         <div className="p-t-10">
                             <button className="btn btn--pill btn--green" type="submit">Submit</button>
                         </div>
