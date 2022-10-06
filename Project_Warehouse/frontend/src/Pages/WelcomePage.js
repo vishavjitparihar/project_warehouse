@@ -1,4 +1,7 @@
-import logo from './logo.svg';
+import React from 'react';
+
+
+import logo from '../logo.svg';
 import './Welcome.css';
 
 const WelcomePage = () => {
@@ -8,7 +11,7 @@ const WelcomePage = () => {
                 <header className="Welcome-header">
                     <img src={logo} className="Welcome-logo" alt="logo" />
                     <p>
-                        Welcome to Apple's Warehoue Page.
+                        <strong>Welcome to Apple's Warehoue Page.</strong>
                     </p>
             
                     <a
