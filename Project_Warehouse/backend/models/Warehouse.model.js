@@ -20,41 +20,20 @@ const Schema = mongoose.Schema;
 const warehouseSchema = new Schema({
     warehouseName: String,
     warehouseNumber: Number,
-    manager: String,
-    phone: String,
 
-    address: {
-        stAddress: String,
-        city: String,
-        State: String,
-        zip: String
-    },
-
-    //maximum capacity this warehouse can store
-    //this property is fixed, and cannot be changed
-    maxCapacityIPhone: {
-        type: Number,
-        required: true,
-        immutable: true
-    },
-    
-
-    //how many items are currently at the warehouse
-    currCapacityIPhone: {
-        type: Number,
-        min: [0, 'Current Capacity cannot be negative']
-    },
-  
-    //quantity of newly added products
-    newIphone: {
-        type: Number,
-        min: [0, 'inventory added must be larger than or equal to 0']
-    },
-
-
-    product: [{
+    //product and the quantity of newly added products
+    inventory: [{
+        product: {
             type: mongoose.Types.ObjectId,
             ref: 'Product'                                      //we will be using object id from Product's database to add items to the warehouse 
+        },
+        quantity: {
+            type: Number
+        },
+        max: {
+            type: Number,
+            immutable: true
+        }
     }]
 
 });
