@@ -20,20 +20,11 @@ const Schema = mongoose.Schema;
 const warehouseSchema = new Schema({
     warehouseName: String,
     warehouseNumber: Number,
+    
 
-    //product and the quantity of newly added products
-    inventory: [{
-        product: {
+    product: [{
             type: mongoose.Types.ObjectId,
             ref: 'Product'                                      //we will be using object id from Product's database to add items to the warehouse 
-        },
-        quantity: {
-            type: Number
-        },
-        max: {
-            type: Number,
-            immutable: true
-        }
     }]
 
 });

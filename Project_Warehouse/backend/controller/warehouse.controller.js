@@ -2,7 +2,7 @@ const Warehouse = require('../models/Warehouse.model.js');
 
 
 // Finding all warehouse function
-const findAllWarehouse = async () => await Warehouse.find().populate('inventory.product');
+const findAllWarehouse = async () => await Warehouse.find().populate('product');
 
 // Creating a new Warehouse and adding it to the database
 const createWarehouse = async wareHouseToSave => {
@@ -28,7 +28,6 @@ const findWarehouseByID = async (id) => {
 // Updating an existing warehoues
 const updateWarehouse = async (id, wareHouseToUpdate) => {
     try {
-        
         await Warehouse.findOneAndUpdate({"warehouseNumber": id}, wareHouseToUpdate);
     } catch (error) {
         throw { status: 400, msg: err};
