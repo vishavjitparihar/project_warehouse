@@ -1,5 +1,7 @@
 table {
     width: 90%;
+    border: 3px solid black;
+    border-collapse: collapse;
 }
 
 .TableMain {   
@@ -14,11 +16,15 @@ tr:nth-child(even) {
 td {
     text-align: center;
     vertical-align: middle;
+    border: 3px solid black;
+    border-collapse: collapse;
 }
 
 th {
     background-color: black;
     height: 40px;
     color: rgb(255, 255, 255);
+    border: 3px solid black;
+    border-collapse: collapse;
     
 }

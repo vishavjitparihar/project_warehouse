@@ -4,15 +4,13 @@ import axios from 'axios';          //using axios so that I can use HTTP request
 import './List.css'
 import { ProdductForm } from '../Form/ProductForm';
 
-const Product = ({product: {model, color, storage, tag, carrierLock, image, serialNum, isRefurbished, isCellular}}) => {
+const Product = ({product: {model, color, storage, tag, carrierLock, image, serialNum}}) => {
     return (
         <tr>
             <td>{model}</td>
             <td>{color}</td>
             <td>{storage}</td>
             <td>{tag}</td>
-            <td>{isRefurbished}</td>
-            <td>{isCellular}</td>
             <td>{carrierLock}</td>
             <td><img height="130" src={image} alt={model}/></td>
             <td>{serialNum}</td>
@@ -44,8 +42,6 @@ export const ProductList = () => {
                             <th>Color</th>
                             <th>Storage in GB</th>
                             <th>Tag</th>
-                            <th>Refurbished</th>
-                            <th>Cellular</th>
                             <th>Carrier Lock</th>
                             <th>Image</th>
                             <th>Serial Number</th>

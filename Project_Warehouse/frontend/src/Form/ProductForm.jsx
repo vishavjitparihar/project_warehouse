@@ -69,7 +69,7 @@ export const ProdductForm = ({setProductList}) => {
             <div className="card card-3">
                 <div className="card-heading"></div>
                 <div className="card-body">
-                    <h2 className="title">Add Product</h2>
+                    <h2 className="title">Add New Product</h2>
 
                     <form onSubmit={handleSubmit}>
                         
