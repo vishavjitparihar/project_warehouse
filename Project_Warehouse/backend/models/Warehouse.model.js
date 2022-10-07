@@ -25,7 +25,17 @@ const warehouseSchema = new Schema({
     product: [{
             type: mongoose.Types.ObjectId,
             ref: 'Product'                                      //we will be using object id from Product's database to add items to the warehouse 
+    }],
+
+    quantity: [{
+        type: Number
+    }],
+
+    max: [{
+        type: Number
     }]
+
+
 
 });
 
