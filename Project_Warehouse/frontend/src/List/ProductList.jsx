@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';          //using axios so that I can use HTTP request
 
-import './ProductList.css'
+import './List.css'
 import { ProdductForm } from '../Form/ProductForm';
 
 const Product = ({product: {model, color, storage, tag, carrierLock, image, serialNum, isRefurbished, isCellular}}) => {
