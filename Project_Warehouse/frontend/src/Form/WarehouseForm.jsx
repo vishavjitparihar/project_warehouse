@@ -9,7 +9,7 @@ export const WarehouseForm = ({setWarehouseList}) => {
     const [warehouseData, setWarehouseData] = useState({
         warehouseName: '',
         warehouseNumber: '',
-        product1: "6339e5b115304f21c8dafbe3",
+        product1: '6339e5b115304f21c8dafbe3',
         product2: '633a703777c541d3d8b26e83',
         prodcut3: '633a736877c541d3d8b26e89',
         product4: '633a76afbc5f1643a6c63b01',

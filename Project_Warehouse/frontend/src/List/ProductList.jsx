@@ -14,6 +14,7 @@ const Product = ({product: {model, color, storage, tag, carrierLock, image, seri
             <td>{carrierLock}</td>
             <td><img height="130" src={image} alt={model}/></td>
             <td>{serialNum}</td>
+            <td><button>Edit</button></td>
         </tr>
     )
 }
@@ -45,6 +46,7 @@ export const ProductList = () => {
                             <th>Carrier Lock</th>
                             <th>Image</th>
                             <th>Serial Number</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
