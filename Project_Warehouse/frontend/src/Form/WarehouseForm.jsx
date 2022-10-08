@@ -4,37 +4,72 @@ import axios from "axios";
 import './WarehouseForm.css'
 
 
-export const WarehouseForm = () => {
+export const WarehouseForm = ({setWarehouseList}) => {
 
     const [warehouseData, setWarehouseData] = useState({
+        warehouseName: '',
+        warehouseNumber: '',
+        product1: "6339e5b115304f21c8dafbe3",
+        product2: '633a703777c541d3d8b26e83',
+        prodcut3: '633a736877c541d3d8b26e89',
+        product4: '633a76afbc5f1643a6c63b01',
+        product5: '6340637497f9f8c16e759af9',
+        quantity1: 0,
+        max1: 100,
+        quantity2: 0,
+        max2: 100,
+        quantity3: 0,
+        max3: 100,
+        quantity4: 0,
+        max4: 100,
+        quantity5: 0,
+        max5: 100
 
     })
 
+    // I don't want the page to refresh after form is submitted
+    const handleClear = async () => {
+        setWarehouseData({
+            warehouseName: '',
+            warehouseNumber: '',
+            product1: '6339e5b115304f21c8dafbe3',
+            product2: '633a703777c541d3d8b26e83',
+            prodcut3: '633a736877c541d3d8b26e89',
+            product4: '633a76afbc5f1643a6c63b01',
+            product5: '6340637497f9f8c16e759af9',
+            quantity1: 0,
+            max1: 100,
+            quantity2: 0,
+            max2: 100,
+            quantity3: 0,
+            max3: 100,
+            quantity4: 0,
+            max4: 100,
+            quantity5: 0,
+            max5: 100
+        });
+    }
 
     const handleSubmit = async (event) => {
         // event.preventDefault() will prevent the page refresh
         event.preventDefault();
-        // try {
-        //     const res = await axios.post('http://localhost:9000/warehouse', {
-        //         serialNum: productData.productSerialNumber, 
-        //         model: productData.productModel,
-        //         color: productData.productColor,
-        //         storage: productData.productStorage,
-        //         isRefurbished: productData.productRefurbished,
-        //         tag: productData.productTag,
-        //         isCellular: productData.productCellular,
-        //         carrierLock: productData.productLock,
-        //         image: productData.productImage
-        //     });
+        try {
+            const res = await axios.post('http://localhost:9000/warehouse', {
+                warehouseName: warehouseData.warehouseName,
+                warehouseNumber: warehouseData.warehouseNumber,
+                product: [warehouseData.product1, warehouseData.product2, warehouseData.prodcut3, warehouseData.product4, warehouseData.product5],
+                quantity: [warehouseData.quantity1, warehouseData.quantity2, warehouseData.quantity3, warehouseData.quantity4, warehouseData.quantity5],
+                max: [warehouseData.max1, warehouseData.max2, warehouseData.max3, warehouseData.max4, warehouseData.max5]
+            });
 
-        //     //use setProductList to manually add the product
-        //     setProductList(productList => [...productList, res.data]);
-        //     event.target.reset();
-        //     handleClear();
+            //use setWarehouseList to manually add the product
+            setWarehouseList(warehouseList => [...warehouseList, res.data]);
+            event.target.reset();
+            handleClear();
 
-        // } catch (err) {
-        //     console.error(err);
-        // }        
+        } catch (err) {
+            console.error(err);
+        }       
     }
 
 
@@ -68,30 +103,6 @@ export const WarehouseForm = () => {
                                     />
                             </div>
 
-                            <div className="input-group">
-                                    <input 
-                                        className="input--style-3" 
-                                        value={warehouseData.warehouseProduct1} 
-                                        //using event value we are updating the model
-                                        onChange={e => setWarehouseData({...warehouseData, warehouseProduct1: e.target.value})}
-                                        placeholder="Product 1 Obj ID"
-                                    />
-                                    <input 
-                                        className="input--style-3" 
-                                        value={warehouseData.warehouseProduct1} 
-                                        //using event value we are updating the model
-                                        onChange={e => setWarehouseData({...warehouseData, warehouseProduct1: e.target.value})}
-                                        placeholder="Product 1 Obj ID"
-                                    />
-                                    <input 
-                                        className="input--style-3" 
-                                        value={warehouseData.warehouseQuantity1} 
-                                        //using event value we are updating the model
-                                        onChange={e => setWarehouseData({...warehouseData, warehouseQuantity1: e.target.value})}
-                                        placeholder="Current Quantity of Product 1"
-                                    />
-
-                            </div>
 
                             <div>
                                 <br></br>

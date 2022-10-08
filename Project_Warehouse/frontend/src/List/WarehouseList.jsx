@@ -81,7 +81,7 @@ export const WarehouseList = () => {
     return (
         <>
             <div className="TablePage">
-                <WarehouseForm />
+                <WarehouseForm setWarehouseList={setWarehouseList}/>
                 <table className="TableMain">
                     <thead>
                         <tr>
