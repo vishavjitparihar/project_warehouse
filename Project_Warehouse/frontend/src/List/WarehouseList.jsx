@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './List.css'
 import { WarehouseForm } from '../Form/WarehouseForm';
+import { WarehouseDelete } from '../Component/Delete/WarehouseDelete';
 
-const Warehouse = ({warehouse: {warehouseName, warehouseNumber, product, quantity, max}}) => {
+
+const Warehouse = ({warehouse: {_id, warehouseName, warehouseNumber, product, quantity, max}}) => {
     return (
         <tr>
             <td>{warehouseName}</td>
             <td>{warehouseNumber}</td>
             <td>
-                <table>
+                <table className='nested'>
                     <thead>
                         <tr>
                             <th>Serial Number</th>
@@ -54,12 +56,14 @@ const Warehouse = ({warehouse: {warehouseName, warehouseNumber, product, quantit
                             <td>{quantity[4]}</td>
                             <td>{max[4]}</td>
                         </tr>
-
                     </tbody>
-                    
 
                 </table>
             </td>
+            <td><button 
+                    className='button'
+                    onClick={(e) => WarehouseDelete(_id, e)}
+                >Delete</button></td>
             
             
         </tr>
@@ -88,6 +92,7 @@ export const WarehouseList = () => {
                             <th>Warehouse</th>
                             <th>Number</th>
                             <th>Inventory</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
 

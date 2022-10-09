@@ -103,6 +103,62 @@ export const WarehouseForm = ({setWarehouseList}) => {
                                     />
                             </div>
 
+                            <div className="input-group">
+                                    <label className="label">Product #1</label>
+                                    <input 
+                                        className="input--style-3" 
+                                        value={warehouseData.product1} 
+                                        //using event value we are updating the model
+                                        onChange={e => setWarehouseData({...warehouseData, product1: e.target.value})}
+                                        placeholder="Object ID for Product 1"
+                                    />
+                            </div>
+
+                            <div className="input-group">
+                                    <label className="label">Product #2 </label>
+                                    <input 
+                                        className="input--style-3" 
+                                        value={warehouseData.product2} 
+                                        //using event value we are updating the model
+                                        onChange={e => setWarehouseData({...warehouseData, product2: e.target.value})}
+                                        placeholder="Object ID for Product 2"
+                                    />
+                            </div>
+
+                            <div className="input-group">
+                                    <label className="label">Product #3 </label>
+                                    <input 
+                                        className="input--style-3" 
+                                        value={warehouseData.prodcut3} 
+                                        //using event value we are updating the model
+                                        onChange={e => setWarehouseData({...warehouseData, prodcut3: e.target.value})}
+                                        placeholder="Object ID for Product 3"
+                                    />
+                            </div>
+
+                            <div className="input-group">
+                                    <label className="label">Product #4 </label>
+                                    <input 
+                                        className="input--style-3" 
+                                        value={warehouseData.product4} 
+                                        //using event value we are updating the model
+                                        onChange={e => setWarehouseData({...warehouseData, product4: e.target.value})}
+                                        placeholder="Object ID for Product 2"
+                                    />
+                            </div>
+
+                            <div className="input-group">
+                                    <label className="label">Product #5 </label>
+                                    <input 
+                                        className="input--style-3" 
+                                        value={warehouseData.product5} 
+                                        //using event value we are updating the model
+                                        onChange={e => setWarehouseData({...warehouseData, product5: e.target.value})}
+                                        placeholder="Object ID for Product 2"
+                                    />
+                            </div>
+                           
+
 
                             <div>
                                 <br></br>

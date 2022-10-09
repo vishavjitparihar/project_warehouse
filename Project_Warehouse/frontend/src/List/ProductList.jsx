@@ -3,8 +3,10 @@ import axios from 'axios';          //using axios so that I can use HTTP request
 
 import './List.css'
 import { ProdductForm } from '../Form/ProductForm';
+import { ProductDelete } from '../Component/Delete/ProductDelete';
 
-const Product = ({product: {model, color, storage, tag, carrierLock, image, serialNum}}) => {
+const Product = ({product: { _id, model, color, storage, tag, carrierLock, image, serialNum}}) => {
+    
     return (
         <tr>
             <td>{model}</td>
@@ -14,7 +16,12 @@ const Product = ({product: {model, color, storage, tag, carrierLock, image, seri
             <td>{carrierLock}</td>
             <td><img height="130" src={image} alt={model}/></td>
             <td>{serialNum}</td>
-            <td><button>Edit</button></td>
+            <td> <button 
+                    className='button' 
+                    onClick={(e) => ProductDelete(_id, e)}
+                 >Delete
+                </button>    
+            </td>
         </tr>
     )
 }
@@ -27,11 +34,10 @@ export const ProductList = () => {
         // accessing GET HTTP request using axios
         // axios would not let me use async function as a parameter, so i will use .then and .catch 
         axios.get ('http://localhost:9000/product')
-            .then(res => { setProductList(res.data); console.log(res.data) })
+            .then(res => { setProductList(res.data)})
             .catch(err => console.error(err));
     }, []);
     
-
     return (
         <>
             <div className= "TablePage">
@@ -50,7 +56,7 @@ export const ProductList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {productList.map(product => <Product key={product._id} product={product}/>)}
+                        {productList.map(product => <Product key={product._id} product={product} />)}
                     </tbody>
                     
                 </table>

@@ -60,8 +60,7 @@ export const ProdductForm = ({setProductList}) => {
             console.error(err);
         }
     }
-    
-    
+
 
     return (
         <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">

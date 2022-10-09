@@ -1,12 +1,15 @@
-table {
-    width: 90%;
+.nested {
+    width: 100%;
     border: 3px solid black;
-    border-collapse: collapse;
+    border-collapse: collapse;  
 }
 
 .TableMain {   
     margin-left: 5%;
     margin-right: 5%;
+    width: 90%;
+    border: 3px solid black;
+    border-collapse: collapse;
 }
 
 tr:nth-child(even) {
@@ -28,3 +31,25 @@ th {
     border-collapse: collapse;
     
 }
+
+.button {
+    display: inline-block;
+    padding: 5px 7px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #000000;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  .button:hover {background-color: #2788ff}
+
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
