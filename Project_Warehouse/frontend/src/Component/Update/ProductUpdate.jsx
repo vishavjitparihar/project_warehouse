@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 
 export const ProductUpdate = ({setProductList}) => {
 
+    //to acess the ID from URL
     const {id} = useParams();
 
     const [productData, setProductData] = useState({

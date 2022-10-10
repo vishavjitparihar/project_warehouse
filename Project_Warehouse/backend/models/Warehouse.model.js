@@ -5,7 +5,6 @@
  * Warehouse number - 2
  * Warehouse manager - Vishavjit Parihar
  * Warehouse phone number - 661-543-6087
- * Address - 1211 Main St, Bakersfield, CA - 93003
  * Avilable Products - iPhone, iPad, Macbook, Apple Watch
  *      Avilable product will also add the quantity of how much products are actually avilable
  */
