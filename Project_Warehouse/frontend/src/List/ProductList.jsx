@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';          //using axios so that I can use HTTP request
-
+import { Link } from 'react-router-dom'
 import './List.css'
 import { ProdductForm } from '../Form/ProductForm';
 import { ProductDelete } from '../Component/Delete/ProductDelete';
+//import { ProductUpdate } from '../Component/Update/ProductUpdate';
+
+
 
 const Product = ({product: { _id, model, color, storage, tag, carrierLock, image, serialNum}}) => {
     
+  
+
     return (
         <tr>
             <td>{model}</td>
@@ -16,7 +21,16 @@ const Product = ({product: { _id, model, color, storage, tag, carrierLock, image
             <td>{carrierLock}</td>
             <td><img height="130" src={image} alt={model}/></td>
             <td>{serialNum}</td>
-            <td> <button 
+            <td>    <Link to={`/products/update/${_id}`}>
+                        <button
+                            className='button'
+                        
+                            >Update
+                        </button> 
+                    </Link>.
+                <div></div>
+                <br></br>
+                <button 
                     className='button' 
                     onClick={(e) => ProductDelete(_id, e)}
                  >Delete
@@ -58,8 +72,9 @@ export const ProductList = () => {
                     <tbody>
                         {productList.map(product => <Product key={product._id} product={product} />)}
                     </tbody>
-                    
                 </table>
+
+               
             </div>
         </>
     );
