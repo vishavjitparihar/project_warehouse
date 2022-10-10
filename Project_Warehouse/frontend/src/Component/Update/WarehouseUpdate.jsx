@@ -52,6 +52,11 @@ export const WarehouseUpdate = ({setWarehouseList}) => {
         });
     }
 
+    const validationCheck = () => {
+        if(warehouseData.max1 < warehouseData.product1){
+            console.log('caught it')
+        }
+    }
     const handleSubmit = async (event) => {
         // event.preventDefault() will prevent the page refresh
         event.preventDefault();
@@ -63,9 +68,12 @@ export const WarehouseUpdate = ({setWarehouseList}) => {
                 quantity: [warehouseData.quantity1, warehouseData.quantity2, warehouseData.quantity3, warehouseData.quantity4, warehouseData.quantity5],
                 max: [warehouseData.max1, warehouseData.max2, warehouseData.max3, warehouseData.max4, warehouseData.max5]
             });
-
+            
+            
             //use setWarehouseList to manually add the product
+            
             setWarehouseList(warehouseList => [...warehouseList, res.data]);
+            validationCheck();
             event.target.reset();
             handleClear();
 

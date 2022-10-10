@@ -28,7 +28,9 @@ const warehouseSchema = new Schema({
     }],
 
     quantity: [{
-        type: Number
+        type: Number,
+        min: [0, 'Current Capacity cannot be less than 0'],
+        max: [200, 'Current Capacity cannot be greater than maximum capacity'] // The string is the error message
     }],
 
     max: [{

@@ -22,9 +22,6 @@ export const AppNav = () => {
                     <NavItem>
                         <Link className="nav-link" to= "/about">About</Link>
                     </NavItem>
-                    <NavItem>
-                        <Link className="nav-link" to= "/contact">Contact Us</Link>
-                    </NavItem>
                 </NavSection>
             </Nav>
         </>

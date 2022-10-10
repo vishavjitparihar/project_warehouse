@@ -4,7 +4,10 @@ import { ProductUpdate } from './Component/Update/ProductUpdate';
 import { WarehouseUpdate } from './Component/Update/WarehouseUpdate';
 import { ProductList } from "./List/ProductList"
 import { WarehouseList } from './List/WarehouseList';
+import About from './Pages/About/About';
+import { Error404 } from './Pages/Error/ContactUs';
 import WelcomePage from "./Pages/WelcomePage/WelcomePage"
+
 
 export const App = () => {
     return (
@@ -20,6 +23,8 @@ export const App = () => {
                 <Route path="/warehouse" element={<WarehouseList />}/>
                 <Route path="/products/update/:id" element={<ProductUpdate />}/>
                 <Route path="/warehouse/update/:id" element={<WarehouseUpdate />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/*" element={<Error404 />} />
     
 
             </Routes>
