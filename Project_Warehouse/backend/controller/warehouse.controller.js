@@ -28,7 +28,7 @@ const findWarehouseByID = async (id) => {
 // Updating an existing warehoues
 const updateWarehouse = async (id, wareHouseToUpdate) => {
     try {
-        await Warehouse.findOneAndUpdate({"warehouseNumber": id}, wareHouseToUpdate);
+        await Warehouse.findByIdAndUpdate(id, wareHouseToUpdate);
     } catch (error) {
         throw { status: 400, msg: err};
     }

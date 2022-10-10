@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 import './List.css'
 import { WarehouseForm } from '../Form/WarehouseForm';
 import { WarehouseDelete } from '../Component/Delete/WarehouseDelete';
@@ -60,10 +61,22 @@ const Warehouse = ({warehouse: {_id, warehouseName, warehouseNumber, product, qu
 
                 </table>
             </td>
-            <td><button 
+
+            <td>
+                <Link to={`/warehouse/update/${_id}`}>
+                    <button
+                        className='button'
+                    >Update
+                    </button>
+                </Link>
+                <div></div>
+                <br></br>
+                <button 
                     className='button'
                     onClick={(e) => WarehouseDelete(_id, e)}
-                >Delete</button></td>
+                >Delete
+                </button>
+            </td>
             
             
         </tr>
